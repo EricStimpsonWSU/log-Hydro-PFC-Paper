@@ -1,0 +1,296 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+ prl,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+% EES additional packages
+\usepackage{enumitem} % used to give enumerations custom numbering, like [prefix]#.  (outline appendix)
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{%
+ Working Title:\\
+ Realistically Modeling Vacancy Behavior in Phase-Field Crystals\\
+ }% Force line breaks with \\
+%\thanks{A footnote to the article title}%
+
+\author{Eric Stimpson}
+% \altaffiliation[Also at ]{Physics Department, XYZ University.}%Lines break automatically or can be forced with \\
+ \email{eric.stimpson@wayne.edu}
+\author{Zhi-Feng Huang}%
+% \email{Second.Author@institution.edu}
+\affiliation{%
+ Department of Physics and Astronomy\\
+ Wayne State University\\
+ 666 W Hancock St,\\
+ Detroit, MI 48201
+}%
+
+\collaboration{MUSO Collaboration}%\noaffiliation
+
+\author{Nigel Goldenfeld}
+ \homepage{https://guava.physics.ucsd.edu/~nigel/}
+\affiliation{
+ Department of Physics\\
+ University of California, San Diego\\
+ 9500 Gilmann Drive,\\
+ La Jolla, CA 92093
+}%
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+The phase field crystal model is a field-theoretic description of crystalline order derived from classical density functional theory, capturing lattice periodicity, defects, and solid-liquid coexistence within a unified free-energy framework.  In its original formulation, this free energy replaced the ideal-gas entropy with a polynomial expansion, simplifying analysis but distorting the low-density thermodynamics and defect energetics.  This flaw was phenomenologically addressed by imposing a positive-definite constraint on the density order parameter, mimicking the more principled ideal-gas entropy term.  Furthermore, subsequent efforts to fix aberrantly slow dynamics  (e.g. dislocation pair annihilation with purely diffusive core motion) by coupling strain to a hydrodynamic velocity field introduced an additional flaw: spurious momentum transfers arising from a violation of Galilean invariance.  Here, both foundational issues are addressed by formulating a logarithmic phase-field crystal model coupled to a Galilean-invariant hydrodynamic velocity equation.  This new model restores the correct low-density thermodynamics and the associated defect energetics while providing physically consistent momentum transport, establishing a physically grounded basis for hydrodynamically consistent phase-field crystal modeling.
+%\begin{description}
+%\item[Usage]
+%Secondary publications and information retrieval purposes.
+%\item[Structure]
+%You may use the \texttt{description} environment to structure your abstract;
+%use the optional argument of the \verb+\item+ command to give the category of each item. 
+%\end{description}
+\end{abstract}
+
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+%\tableofcontents
+
+\section{\label{sec:intro}Introduction}
+The phase-field crystal model vis-a-vis vacancies is...
+\begin{enumerate}
+    \item PFC free energy functional + CH dynamics $\rightarrow$ phase coexistence with atomic length-scales at diffusive time-scales
+    \item mechanical and kinetics of systems with vacancies
+\end{enumerate}
+
+The inherent problems with PFC addressed here are...
+\begin{enumerate}
+    \item vacancy stability
+    \item elastic-modulated kinetics, especially the role played by vacancies
+\end{enumerate}
+
+Previous attempts were made [what worked, what didn't]...
+\begin{enumerate}
+    \item positive definite density ala vacancy PFC
+    \item Second order in time $\partial^2_{t^2}$
+    \item coupled displacement field
+    \item hydrodynamic coupling
+\end{enumerate}
+
+The purpose of this letter is [new idea, what it accomplishes]...
+\begin{enumerate}
+    \item Keep the ideal-gas entropy term, $\phi \log(\phi)$
+    \begin{itemize}
+        \item Infinite chemical potential of vacuum, positive-definite density, stable vacancies, Ostwald ripening
+        \item Phase diagram - similarities to and divergence from standard PFC
+        \item Vacancy diffusion Part I
+    \end{itemize}
+    \item Ensure Galilean invariance of hydrodynamic velocity field: $\vec{\mathbf{v}} = \vec{\mathbf{v}}' + t \vec{\mathbf{v}}_0$
+    \begin{itemize}
+        \item Interpretation of density and $\langle \phi \rangle \approx \bar{\phi}$
+        \item Vacancy diffusion part II - hydrodynamic advection + noise, impact on diffusion
+        \item Nabarro-Herring creep
+    \end{itemize}
+\end{enumerate}
+
+\section{\label{sec:body}Body}
+
+Phase diagram discussion...
+\begin{enumerate}
+    \item Commensurate model parameters
+    \item Locus of linear stability
+    \item Phase coexistence
+    \item Vacancy stability
+\end{enumerate}
+
+Otswald ripening...
+\begin{enumerate}
+    \item Infinite chemical potential of vacuum
+    \item Droplet size distribution
+\end{enumerate}
+
+Vacancy diffusion, part I...
+\begin{enumerate}
+    \item Selecting appropriate model parameters
+    \item Tracking 1x, 2x, 3x vacancy complex
+    \item Vacancy diffusion dependence on free-energy temperature $\epsilon$
+    \item Vacancy diffusion dependence on noise strength (proxy for temperature
+\end{enumerate}
+
+Vacancy diffusion, part II...
+\begin{enumerate}
+    \item hydrodynamic advection impact
+\end{enumerate}
+
+Nabarro-Herring creep
+\begin{enumerate}
+    \item Fraction of vacancy concentration
+        \begin{align}
+        N_v^C &\approx \exp \left( -\frac{Q_f}{kT} \right) \exp \left( -\frac{\sigma \Omega}{kT} \right) \\
+        N_v^T &\approx \exp \left( -\frac{Q_f}{kT} \right) \exp \left( \frac{\sigma \Omega}{kT} \right)
+        \end{align}
+    \item Solve for $Q_f$, unitless $T$
+\end{enumerate}
+
+\section{Outlook}
+
+Future directions...
+\begin{enumerate}
+    \item Growth on substrate
+    \item Grain growth
+    \item Plasticity
+\end{enumerate}
+
+\begin{acknowledgments}
+We wish to acknowledge the support of the author community in using
+REV\TeX{}, offering suggestions and encouragement, testing new versions,
+\dots.
+\end{acknowledgments}
+
+
+
+\appendix*
+
+\section{Supplementals}
+
+\subsection{Derivation of commensurate model parameters}
+
+\subsection{Notes on Galilean invariance}
+
+\section{Notes [not to be included beyond drafts]}
+
+\subsection{List of main points:}
+\begin{enumerate}
+    \item Vacancies are important drivers of crystalline material properties and behaviors.
+    \item A new PFC (logPFC) that maintains ideal gas entropy stabilizes vacancies, enabling investigations of vacancy-impacted material properties.
+    \item Coupling hydrodynamic PFC (HPFC) with logPFC to get logHPFC gives correct dynamic behaviors.
+    \item The logHPFC model provides a useful atomic model of plasticity.
+\end{enumerate}
+
+\subsection{Introduction [\P I1-4]}
+\begin{enumerate}[label=Intro\arabic*] % "Intro" + number
+    \item What is the general area of the paper? \label{outline-intro1}
+    \item What is the specific problem addressed? \label{outline-intro2}
+    \item Why were previous works unsuccessful or unsatisfactory? \label{outline-intro3}
+    \item What is the new idea in the paper? What new results does it lead to? What is an overview of the structure of the paper? \label{outline-intro4}
+\end{enumerate}
+\subsubsection*{} % just vertical space
+\subsubsection*{\P \ref{outline-intro1}: General area}
+Vacancies in crystals: 
+\begin{enumerate}
+    \item importance of vacancies - factor in crystal growth, prevalence in bulk materials, impacts on material properties (mechanical, electrical, magnetic), role in plasticity (deformations, hardening, PLC effect)
+    \item PFC vacancy stability problem - in std. PFC, vacancies diffuse into background, no useful states, energy, elastic properties
+    \item PFC vacancy dynamics problem - incorrect vacancy diffusion/mobility, no sensitivity to strain
+    \item generally - standard PFC models capture many important properties of crystalline defects; vacancies are a blind spot
+\end{enumerate}
+%
+% PFC model of solids:
+%\begin{enumerate}
+%    \item quantum description - Quantum mechanics provides an authoritative description of matter, enabling taxing-yet-precise calculations of energy states, from which thermodynamic behaviors of regular crystalline solids can be determined.
+%    \item other models - Even for single-component crystals, however, such a description lacks utility for capturing the behavior of real macroscopic crystals, in which grain boundaries and other structural defects introduce unbounded complexity and radically alter physical properties, giving rise to classical density functional theory (cDFT), with its emphasis on accurate energy states for complex configurations, phase-field (PF) models, which address the essential physics at phase boundaries, and molecular dynamics (MD) simulations that calculate the motions of up to many millions of atoms.
+%    \item approximations - Each of these models dispenses with various details of a fully quantum description in favor of more tractable equations valid in specific limits.
+%    \item PFC model - The phase-field crystal (PFC) model and its numerous derivatives draw concepts from cDFT, PF, and MD models to describe real-world materials and the impact of their complex microscopic structure, over a range of material systems.
+%    \item where used - Inquiries into both statics (ground states) and dynamics (evolution of states) of defect-rich crystals are frequent targets of the PFC model.
+%\end{enumerate}
+
+\subsubsection*{\P \ref{outline-intro2}: Specific problem}
+PFC crystals miss stable vacancies and strain effects:
+\begin{enumerate}
+    \item rescaled density - 
+    \item vacancy problem - 
+    \item vacancies defects -
+    \item slow relaxation - 
+    \item defect-induced strain - 
+\end{enumerate}
+
+\subsubsection*{\P \ref{outline-intro3}: Previous work}
+VPFC, sHPFC, HPFC:
+\begin{enumerate}
+    \item Second order dynamics
+    \item Vacancy PFC (VPFC)
+    \item Simplified Hydrodynamic PFC (sHPFC or HPFC)
+\end{enumerate}
+
+\subsubsection*{\P \ref{outline-intro4}: New idea, result, overview}
+logHPFC:
+\begin{enumerate}
+    \item logPFC
+    \item logHPFC
+\end{enumerate}
+
+Vacancy diffusion:
+\begin{enumerate}
+    \item comparison to MD
+    \item temperature dependence
+    \item 1x, 2x, 3x, 4x vacancy
+\end{enumerate}
+
+PLC effect:
+
+% The \nocite command causes all entries in a bibliography to be printed out
+% whether or not they are actually referenced in the text. This is appropriate
+% for the sample file to show the different styles of references, but authors
+% most likely will not want to use it.
+\nocite{*}
+
+\bibliography{pfc}% Produces the bibliography via BibTeX.
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******
