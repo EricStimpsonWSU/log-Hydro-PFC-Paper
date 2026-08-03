@@ -81,7 +81,7 @@
  Detroit, MI 48201
 }%
 
-\collaboration{MUSO Collaboration}%\noaffiliation
+%\collaboration{MUSO Collaboration}%\noaffiliation
 
 \author{Nigel Goldenfeld}
  \homepage{https://guava.physics.ucsd.edu/~nigel/}
@@ -203,17 +203,83 @@ REV\TeX{}, offering suggestions and encouragement, testing new versions,
 \dots.
 \end{acknowledgments}
 
-
-
 \appendix*
 
 \section{Supplementals}
 
-\subsection{Derivation of commensurate model parameters}
+\subsection{Derivation of commensurate model parameters / phase-diagram locus of stability}
+Much of what has been written about PFC uses a common PFC energy functional, referred to here as 'standard' to contrast with the 'logarithmic' PFC model and its altered functional.  The goal is to find expressions for model parameters for the logarithmic PFC model in terms of the standard PFC model parameters.  Compare
+%
+\begin{equation}
+    F^s[n] = \int_\Omega d \vec{\mathbf{r}} \left[ \frac{1}{2} \beta^s n \mathcal{L} n + \frac{1}{2} \epsilon^s n^2 + \frac{1}{3}g^s n^3 + n^4 \right]
+\end{equation}
+%
+with
+%
+\begin{equation}
+    F^l[\phi] = \int_\Omega d \vec{\mathbf{r}} \left[ \frac{1}{2} \beta^l \phi \mathcal{L} \phi + \frac{1}{2} \epsilon^l \phi^2 + \frac{1}{3}g^l \phi^3 + \phi^4 + \phi \log \phi \right]
+\end{equation}
+%
+where $B^\Theta, \epsilon^\Theta, g^\Theta$ are model parameters for the $\Theta = s$ (standard) and 
+$\Theta = l$ (logarithmic) PFC energy functionals, $\mathcal{L}$ is the Swift-Hohenberg (SH) operator
+%
+\begin{equation}
+    \mathcal{L} \phi = \left(1 + \nabla^2 \right)^2 \phi,
+\end{equation}
+%
+and $n, \phi$ are density fields for the corresponding models.  The Cahn-Hilliard (CH) equation for conserved dynamics under logarithmic PFC gives
+%
+\begin{equation}
+    \frac{\partial}{\partial t} \phi = \nabla^2 \frac{\delta F}{\delta \phi} = \nabla^2 \left[\beta^; \mathcal{L} \phi + \epsilon^l \phi + g^l \phi^2 + \phi^3 + \log \phi \right].
+\end{equation}
+%
+Standard PFC defines its density by $n \equiv (\rho - \rho_0) / \rho_0$, and the logarithmic PFC by $\phi \equiv \rho / \rho_0$, giving an equivalence between them as $\phi = 1 + n$.  The SH operator under the change of variable is
+%
+\begin{equation}
+    \mathcal{L} \phi = \mathcal{L} (1 + n)= \left(1 + \nabla^2 \right)^2 (1 + n) = \mathcal{L} n + 1.
+\end{equation}
+%
+The log term in the logarithmic PFC energy functional and its derivative are approximated as a polynomial in density around $n = 0$ as
+\begin{equation}
+    \log (1 + n) \approx n -\frac{n^2}{2} + \frac{n^3}{3} + \mathcal{O}\left( n^4 \right),
+\end{equation}
+where fourth-order (and higher) terms were eliminated under the (questionable) assumption of small fluctuations in $n$ about zero.  The CH equation in terms of standard PFC's density field and logarithmic PFC model parameters is then
+\begin{equation}
+    \frac{\partial n}{\partial t} \! \approx \! \nabla^2\! \left[ B^l \mathcal{L} n + \left( \epsilon^l + 2g^l + 4 \right) n + \! \left( g^l + \frac{5}{2} \right)n^2 + \frac{4}{3} n^3 \right]
+\end{equation}
+%
+after dropping first-order and lower terms in $n$ (which don't contribute to the final Laplacian).  A change of variable $n \rightarrow (3/4)^{(1/3)} n'$, after dropping the prime reads
+\begin{align}
+    \frac{\partial n}{\partial t} & \approx \nabla^2 & \left[ \left( \frac{3}{4} \right)^{\frac{1}{3}} B^l \mathcal{L} n +
+    \left( \frac{3}{4} \right)^{\frac{1}{3}} \left( \epsilon^l + 2 g^l + 4 \right) n + \right. \nonumber \\
+    & & \left. \left( \frac{3}{4} \right)^{\frac{2}{3}} \left( g^l + \frac{5}{2} \right) n^2 + n^3 \right],
+\end{align}
+%
+or in terms of standard PFC model parameters,
+\begin{equation}
+    \frac{\partial n}{\partial t} \approx \nabla^2 \left[ B^s \mathcal{L} n + \epsilon^s n + g^s n^2 + n^3 \right],
+\end{equation}
+with
+\begin{align}
+    B^s & \approx \left( \frac{3}{4} \right)^{\frac{1}{3}} B^l \\
+    \epsilon^s & \approx \left( \frac{3}{4} \right)^{\frac{1}{3}} \left( \epsilon^l + 2 g^l + 4 \right) \\
+    g^s & \approx \left( \frac{3}{4} \right)^{\frac{2}{3}} \left( g^l + \frac{5}{2} \right) \\
+    n & \approx \left( \frac{3}{4} \right)^{\frac{1}{3}} (\phi - 1).
+\end{align}
+%
+Similarly, the logarithmic PFC model parameters can be written in terms of standard PFC model parameters as
+\begin{align}
+    B^s & \approx \left( \frac{3}{4} \right)^{-\frac{1}{3}} B^l \\
+    \epsilon^l & \approx \left( \frac{3}{4} \right)^{-\frac{1}{3}} \epsilon^s - 2 \left( \frac{3}{4} \right)^{-\frac{2}{3}} g^s + 1 \\
+    g^l & \approx \left( \frac{3}{4} \right)^{-\frac{2}{3}} g^s - \frac{5}{2} \\
+    \phi & \approx \left( \frac{3}{4} \right)^{-\frac{1}{3}} n + 1.
+\end{align}
+
+\subsection{Notes on locus of stability, critical\\ temperature and density}
 
 \subsection{Notes on Galilean invariance}
 
-\section{Notes [not to be included beyond drafts]}
+\section{Other Misc. Notes [not to be included beyond drafts]}
 
 \subsection{List of main points:}
 \begin{enumerate}
